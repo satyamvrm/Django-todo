@@ -1,12 +1,14 @@
 FROM python:3.8
 
-COPY requirement.txt /app
+RUN mkdir app
 
 WORKDIR /app
 
-RUN pip install -r requirement.txt
+RUN pip install django 
 
 COPY . /app/
+
+RUN cd /app/
 
 RUN python manage.py migrate
 
